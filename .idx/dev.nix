@@ -16,6 +16,28 @@
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
       # "vscodevim.vim"
+      "alfredbirk.tailwind-documentation"
+      "bradlc.vscode-tailwindcss"
+      "chouzz.vscode-better-align"
+      "christian-kohler.npm-intellisense"
+      "christian-kohler.path-intellisense"
+      "clinyong.vscode-css-modules"
+      "dbaeumer.vscode-eslint"
+      "DigitalBrainstem.javascript-ejs-support"
+      "dsznajder.es7-react-js-snippets"
+      "esbenp.prettier-vscode"
+      "johnpapa.vscode-peacock"
+      "mikestead.dotenv"
+      "mrmlnc.vscode-scss"
+      "ms-vscode.js-debug"
+      "msjsdiag.vscode-react-native"
+      "PKief.material-icon-theme"
+      "Prisma.prisma"
+      "PulkitGangwar.nextjs-snippets"
+      "qwtel.sqlite-viewer"
+      "streetsidesoftware.code-spell-checker"
+      "styled-components.vscode-styled-components"
+      "YoavBls.pretty-ts-errors"
     ];
     workspace = {
       # Runs when a workspace is first created with this `dev.nix` file
