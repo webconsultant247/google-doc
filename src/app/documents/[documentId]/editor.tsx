@@ -16,6 +16,7 @@ import Highlight from "@tiptap/extension-highlight";
 import { Color } from "@tiptap/extension-color";
 import Placeholder from "@tiptap/extension-placeholder";
 import Link from "@tiptap/extension-link";
+import TextAlign from "@tiptap/extension-text-align";
 
 import StarterKit from "@tiptap/starter-kit";
 import { useEditorStore } from "@/store/use-editor-store";
@@ -69,6 +70,9 @@ export const Editor = () => {
         autolink: true,
         defaultProtocol: "https:",
         protocols: ["ftp", "mailto", "tel"],
+      }),
+      TextAlign.configure({
+        types: ["heading", "paragraph"],
       }),
       Color,
       TaskList,

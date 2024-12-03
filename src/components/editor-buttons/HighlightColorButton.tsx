@@ -6,10 +6,15 @@ import {
   DropdownMenuContent,
 } from "@/components/ui/dropdown-menu";
 import { HighlighterIcon } from "lucide-react";
+import { getContrastColor } from "@/lib/utils";
 
 const HighlightColorButton = () => {
   const { editor } = useEditorStore();
   const value = editor?.getAttributes("highlight").color || "#FFFFFFFF";
+
+  // Determine icon color based on background contrast
+  const iconColor = getContrastColor(value);
+
   const onPickerChange = (color: ColorResult) => {
     editor?.chain().focus().setHighlight({ color: color.hex }).run();
   };
@@ -18,7 +23,13 @@ const HighlightColorButton = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button className="h-7 min-w-7 shrink-0 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm">
-          <HighlighterIcon color={value} className="size-4" />
+          <HighlighterIcon
+            style={{
+              backgroundColor: value,
+              color: iconColor,
+            }}
+            className="size-4"
+          />
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="p-0">

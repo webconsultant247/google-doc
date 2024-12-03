@@ -3,6 +3,7 @@ import FontFamilyButton from "@/components/editor-buttons/FontFamilyButton";
 import HeadingLevelButton from "@/components/editor-buttons/HeadingLevelButton";
 import HighlightColorButton from "@/components/editor-buttons/HighlightColorButton";
 import TextColorButton from "@/components/editor-buttons/TextColorButton";
+import LinkButton from "@/components/editor-buttons/LinkButton";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { useEditorStore } from "@/store/use-editor-store";
@@ -20,6 +21,9 @@ import {
   RemoveFormattingIcon,
 } from "lucide-react";
 import React from "react";
+import ImageButton from "@/components/editor-buttons/ImageButton";
+import AlignmentButton from "@/components/editor-buttons/AlignmentButton";
+import ListButton from "@/components/editor-buttons/ListButton";
 
 interface ToolbarButtonProps {
   onClick?: () => void;
@@ -152,9 +156,13 @@ const Toolbar = () => {
       <HighlightColorButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       {/* {TODO: LINK */}
+      <LinkButton />
       {/* {TODO: IMAGE */}
+      <ImageButton />
       {/* {TODO: ALIGN */}
+      <AlignmentButton />
       {/* {TODO: LINE HEIGHT */}
+      <ListButton />
       {/* {TODO: LIST */}
       {sections[2].map((item) => (
         <ToolbarButton key={item.label} {...item} />

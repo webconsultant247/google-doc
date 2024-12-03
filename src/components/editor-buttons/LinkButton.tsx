@@ -11,21 +11,31 @@ import { Button } from "@/components/ui/button";
 
 const FontFamilyButton = () => {
   const { editor } = useEditorStore();
-  const [value, setValue] = useState(editor?.getAttributes("link").href || "");
+  const [value, setValue] = useState("");
+  console.log(`Link: ${editor?.getAttributes("link").href}`);
   const onLinkChange = (href: string) => {
     editor?.chain().focus().extendMarkRange("link").setLink({ href }).run();
     setValue("");
   };
   return (
-    <DropdownMenu>
+    <DropdownMenu
+      onOpenChange={(open) => {
+        if (open) setValue(editor?.getAttributes("link").href || "");
+      }}
+    >
       <DropdownMenuTrigger asChild>
         <button className="h-7 min-w-7 shrink-0 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm">
           <Link2Icon className="size-4" />
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="p-2.5 flex items-center gap-x-2">
-        <Input className="" onChange={(e)=>setVa} placeholder="Paste link" value={value} />
-        <Button></Button>
+        <Input
+          className=""
+          onChange={(e) => setValue(e.target.value)}
+          placeholder="https://example.com"
+          value={value}
+        />
+        <Button onClick={() => onLinkChange(value)}>Apply</Button>
       </DropdownMenuContent>
     </DropdownMenu>
   );
